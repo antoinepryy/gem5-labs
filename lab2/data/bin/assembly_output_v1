@@ -1,0 +1,164 @@
+	.arch armv8-a+sve
+	.file	"matmul.c"
+	.text
+	.align	2
+	.p2align 3,,7
+	.global	matmul_basic
+	.type	matmul_basic, %function
+matmul_basic:
+.LFB11:
+	.cfi_startproc
+	stp	x29, x30, [sp, -64]!
+	.cfi_def_cfa_offset 64
+	.cfi_offset 29, -64
+	.cfi_offset 30, -56
+	mov	x29, sp
+	stp	x21, x22, [sp, 32]
+	.cfi_offset 21, -32
+	.cfi_offset 22, -24
+	mov	x22, x0
+	mul	w0, w2, w3
+	mov	x21, x1
+	stp	x19, x20, [sp, 16]
+	.cfi_offset 19, -48
+	.cfi_offset 20, -40
+	mov	w20, w2
+	mov	w19, w4
+	sbfiz	x0, x0, 2, 32
+	str	x23, [sp, 48]
+	.cfi_offset 23, -16
+	mov	w23, w3
+	bl	malloc
+	cmp	w20, 0
+	ble	.L1
+	cmp	w19, 0
+	ble	.L1
+	cmp	w23, 0
+	ble	.L1
+	mov	x7, x22
+	sbfiz	x11, x20, 2, 32
+	mov	x2, x0
+	lsl	w13, w19, 1
+	sbfiz	x8, x19, 2, 32
+	sub	w12, w19, #1
+	mov	w10, 0
+	sxtw	x3, w23
+	ptrue	p1.s, all
+	whilelo	p2.s, xzr, x3
+	.p2align 3,,7
+.L3:
+	cmp	w19, 2
+	mov	x6, x21
+	mov	x4, x7
+	mov	w5, 0
+	mov	w9, 1
+	ble	.L9
+.L5:
+	add	x5, x8, x6
+	mov	x1, 0
+	ld1rw	z4.s, p1/z, [x4]
+	mov	p0.b, p2.b
+	.p2align 3,,7
+.L4:
+	ld1w	z0.s, p0/z, [x6, x1, lsl 2]
+	ld1w	z1.s, p0/z, [x2, x1, lsl 2]
+	ld1w	z2.s, p0/z, [x5, x1, lsl 2]
+	fmla	z1.s, p1/m, z0.s, z4.s
+	ld1rw	z3.s, p1/z, [x4, 4]
+	st1w	z1.s, p0, [x2, x1, lsl 2]
+	ld1w	z0.s, p0/z, [x2, x1, lsl 2]
+	fmla	z0.s, p1/m, z3.s, z2.s
+	st1w	z0.s, p0, [x2, x1, lsl 2]
+	incw	x1
+	whilelo	p0.s, x1, x3
+	bne	.L4
+	add	w5, w9, 1
+	add	w9, w9, 2
+	add	x4, x4, 8
+	add	x6, x6, x13, sxtw 2
+	cmp	w12, w9
+	bgt	.L5
+.L9:
+	mul	w4, w19, w5
+	sxtw	x5, w5
+	add	x4, x21, x4, sxtw 2
+	.p2align 3,,7
+.L7:
+	mov	x1, 0
+	add	x6, x7, x5, lsl 2
+	mov	p0.b, p2.b
+	ld1rw	z2.s, p1/z, [x6]
+	.p2align 3,,7
+.L6:
+	ld1w	z0.s, p0/z, [x2, x1, lsl 2]
+	ld1w	z1.s, p0/z, [x4, x1, lsl 2]
+	fmla	z0.s, p1/m, z1.s, z2.s
+	st1w	z0.s, p0, [x2, x1, lsl 2]
+	incw	x1
+	whilelo	p0.s, x1, x3
+	bne	.L6
+	add	x5, x5, 1
+	add	x4, x4, x8
+	cmp	w19, w5
+	bgt	.L7
+	add	w10, w10, 1
+	add	x2, x2, x11
+	cmp	w20, w10
+	add	x7, x7, x11
+	bne	.L3
+.L1:
+	ldp	x19, x20, [sp, 16]
+	ldp	x21, x22, [sp, 32]
+	ldr	x23, [sp, 48]
+	ldp	x29, x30, [sp], 64
+	.cfi_restore 30
+	.cfi_restore 29
+	.cfi_restore 23
+	.cfi_restore 21
+	.cfi_restore 22
+	.cfi_restore 19
+	.cfi_restore 20
+	.cfi_def_cfa_offset 0
+	ret
+	.cfi_endproc
+.LFE11:
+	.size	matmul_basic, .-matmul_basic
+	.section	.text.startup,"ax",@progbits
+	.align	2
+	.p2align 3,,7
+	.global	main
+	.type	main, %function
+main:
+.LFB12:
+	.cfi_startproc
+	stp	x29, x30, [sp, -32]!
+	.cfi_def_cfa_offset 32
+	.cfi_offset 29, -32
+	.cfi_offset 30, -24
+	mov	x0, 65536
+	mov	x29, sp
+	str	x19, [sp, 16]
+	.cfi_offset 19, -16
+	bl	malloc
+	mov	x19, x0
+	mov	x0, 65536
+	bl	malloc
+	mov	x1, x0
+	mov	w4, 128
+	mov	x0, x19
+	mov	w3, w4
+	mov	w2, w4
+	bl	matmul_basic
+	mov	w0, 0
+	ldr	x19, [sp, 16]
+	ldp	x29, x30, [sp], 32
+	.cfi_restore 30
+	.cfi_restore 29
+	.cfi_restore 19
+	.cfi_def_cfa_offset 0
+	ret
+	.cfi_endproc
+.LFE12:
+	.size	main, .-main
+	.ident	"GCC: (GNU Toolchain for the A-profile Architecture 9.2-2019.12 (arm-9.10)) 9.2.1 20191025"
+	.section	.note.GNU-stack,"",@progbits
