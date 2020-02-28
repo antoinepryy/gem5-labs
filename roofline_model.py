@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 # FLOPS = 4 CPUs * 2 cores * 2GHz = 16GFLOPS
-Cortex_A15_peak = 16000000 #FLOPS
+Cortex_A15_peak = 16000000  # FLOPS
 x64_DDR3_1600_bw = 12800000  # RAM bandwidth in B/s
 
 computer_bound = Cortex_A15_peak / x64_DDR3_1600_bw
@@ -31,4 +31,3 @@ plt.legend(loc="upper right")
 plt.xscale("log")
 plt.yscale("log")
 plt.show()
-
