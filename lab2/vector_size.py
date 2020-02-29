@@ -26,8 +26,7 @@ plt.xlabel('Vector size')
 plt.ylabel('Cache request')
 plt.plot(x, [k[0] for k in cache_hit_miss], label="hits")
 plt.plot(x, [k[1] for k in cache_hit_miss], label="miss")
-
+plt.legend(loc="upper right")
 plt.show()
-
 
 plt.show()
