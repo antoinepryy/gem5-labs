@@ -18,7 +18,7 @@ plt.plot(x, committed_vect_instructions)
 
 plt.figure()
 plt.xlabel('Vector size')
-plt.ylabel('Vector instructions committed')
+plt.ylabel('Memory read performed')
 plt.plot(x, mem_read)
 
 plt.figure()
@@ -27,6 +27,5 @@ plt.ylabel('Cache request')
 plt.plot(x, [k[0] for k in cache_hit_miss], label="hits")
 plt.plot(x, [k[1] for k in cache_hit_miss], label="miss")
 plt.legend(loc="upper right")
-plt.show()
 
 plt.show()
