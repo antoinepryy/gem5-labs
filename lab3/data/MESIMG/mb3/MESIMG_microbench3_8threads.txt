@@ -1,0 +1,12 @@
+address range: vectorA:[00000000865185c0] - vectorA[00000000865185c9] 
+address range: vectorB:[00000000865185b0] - vectorB[00000000865185b9] 
+Finished successfully!CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+0,48825,2741,0,2741,0,0,81,20967,718,0,0,6,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+1,10001033,142,0,142,0,0,97,444,20,0,0,5,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+2,10000040,36,0,36,0,0,34,36,8,0,0,5,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2840,597

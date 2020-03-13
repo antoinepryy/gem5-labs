@@ -1,0 +1,13 @@
+Pthread init done
+Value: 8
+Finished successfully! 
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+0,54220,3389,0,3389,0,0,645,24352,876,0,0,14,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+1,2846,599,0,599,0,0,571,1267,56,0,0,16,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+2,1596,521,0,521,0,0,505,757,52,0,0,15,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+3,2037,608,0,608,0,0,583,947,53,0,0,13,0,0,0,0
+CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent, numInclusionMisses, numInclusionHits, numLLCMisses, numLLCHits
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3134,658
