@@ -70,7 +70,7 @@ plt.ylabel("Miss Serviced by")
 plt.plot(x, filter_array(MESIMG, 6), label="Shared in MESIMG")
 plt.plot(x, filter_array(MESIMG, 7), label="Modified in MESIMG")
 plt.plot(x, filter_array(MESI, 6), label="Shared in MESI")
-plt.plot(x, filter_array(MESI, 7), label="Shared in MESI")
+plt.plot(x, filter_array(MESI, 7), label="Modified in MESI")
 plt.legend(loc="upper right")
 plt.show()
 
