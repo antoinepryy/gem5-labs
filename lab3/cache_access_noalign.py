@@ -1,17 +1,17 @@
 import matplotlib.pyplot as plt
 
-from lab3.data.MESI.mb3.MESI_microbench3_1024 import CPU_1 as CPU_1_mesi_1024, CPU_2 as CPU_2_mesi_1024
-from lab3.data.MESI.mb3.MESI_microbench3_2048 import CPU_1 as CPU_1_mesi_2048, CPU_2 as CPU_2_mesi_2048
-from lab3.data.MESI.mb3.MESI_microbench3_32768 import CPU_1 as CPU_1_mesi_32768, CPU_2 as CPU_2_mesi_32768
-from lab3.data.MESI.mb3.MESI_microbench3_65536 import CPU_1 as CPU_1_mesi_65536, CPU_2 as CPU_2_mesi_65536
-from lab3.data.MESIMG.mb3.MESIMG_microbench3_1024 import CPU_1 as CPU_1_mesimg_1024, CPU_2 as CPU_2_mesimg_1024
-from lab3.data.MESIMG.mb3.MESIMG_microbench3_2048 import CPU_1 as CPU_1_mesimg_2048, CPU_2 as CPU_2_mesimg_2048
-from lab3.data.MESIMG.mb3.MESIMG_microbench3_32768 import CPU_1 as CPU_1_mesimg_32768, CPU_2 as CPU_2_mesimg_32768
-from lab3.data.MESIMG.mb3.MESIMG_microbench3_65536 import CPU_1 as CPU_1_mesimg_65536, CPU_2 as CPU_2_mesimg_65536
-from lab3.data.MSI.mb3.MSI_microbench3_1024 import CPU_1 as CPU_1_msi_1024, CPU_2 as CPU_2_msi_1024
-from lab3.data.MSI.mb3.MSI_microbench3_2048 import CPU_1 as CPU_1_msi_2048, CPU_2 as CPU_2_msi_2048
-from lab3.data.MSI.mb3.MSI_microbench3_32768 import CPU_1 as CPU_1_msi_32768, CPU_2 as CPU_2_msi_32768
-from lab3.data.MSI.mb3.MSI_microbench3_65536 import CPU_1 as CPU_1_msi_65536, CPU_2 as CPU_2_msi_65536
+from lab3.data.MESI.mb4.MESI_microbench4_1024 import CPU_1 as CPU_1_mesi_1024, CPU_2 as CPU_2_mesi_1024
+from lab3.data.MESI.mb4.MESI_microbench4_2048 import CPU_1 as CPU_1_mesi_2048, CPU_2 as CPU_2_mesi_2048
+from lab3.data.MESI.mb4.MESI_microbench4_32768 import CPU_1 as CPU_1_mesi_32768, CPU_2 as CPU_2_mesi_32768
+from lab3.data.MESI.mb4.MESI_microbench4_65536 import CPU_1 as CPU_1_mesi_65536, CPU_2 as CPU_2_mesi_65536
+from lab3.data.MESIMG.mb4.MESIMG_microbench4_1024 import CPU_1 as CPU_1_mesimg_1024, CPU_2 as CPU_2_mesimg_1024
+from lab3.data.MESIMG.mb4.MESIMG_microbench4_2048 import CPU_1 as CPU_1_mesimg_2048, CPU_2 as CPU_2_mesimg_2048
+from lab3.data.MESIMG.mb4.MESIMG_microbench4_32768 import CPU_1 as CPU_1_mesimg_32768, CPU_2 as CPU_2_mesimg_32768
+from lab3.data.MESIMG.mb4.MESIMG_microbench4_65536 import CPU_1 as CPU_1_mesimg_65536, CPU_2 as CPU_2_mesimg_65536
+from lab3.data.MSI.mb4.MSI_microbench4_1024 import CPU_1 as CPU_1_msi_1024, CPU_2 as CPU_2_msi_1024
+from lab3.data.MSI.mb4.MSI_microbench4_2048 import CPU_1 as CPU_1_msi_2048, CPU_2 as CPU_2_msi_2048
+from lab3.data.MSI.mb4.MSI_microbench4_32768 import CPU_1 as CPU_1_msi_32768, CPU_2 as CPU_2_msi_32768
+from lab3.data.MSI.mb4.MSI_microbench4_65536 import CPU_1 as CPU_1_msi_65536, CPU_2 as CPU_2_msi_65536
 from lab3.functions import mean_cpu_cores, filter_array
 
 # BENCHMARK 2
@@ -62,9 +62,7 @@ plt.ylabel("Read Requests")
 plt.plot(x, filter_array(MSI, 1), label="MSI Hits")
 plt.plot(x, filter_array(MESI, 1), label="MESI Hits")
 plt.plot(x, filter_array(MESIMG, 1), label="MESIMG Hits")
-plt.plot(x, filter_array(MSI, 2), label="MSI Misses")
-plt.plot(x, filter_array(MESI, 2), label="MESI Misses")
-plt.plot(x, filter_array(MESIMG, 2), label="MESIMG Misses")
+
 plt.legend(loc="upper right")
 plt.show()
 
@@ -72,11 +70,8 @@ plt.figure()
 plt.xlabel("Array Size")
 plt.ylabel("Miss Serviced by")
 plt.plot(x, filter_array(MSI, 6), label="Shared in MSI")
-plt.plot(x, filter_array(MSI, 7), label="Modified in MSI")
 plt.plot(x, filter_array(MESI, 6), label="Shared in MESI")
-plt.plot(x, filter_array(MESI, 7), label="Modified in MESI")
 plt.plot(x, filter_array(MESIMG, 6), label="Shared in MESIMG")
-plt.plot(x, filter_array(MESIMG, 7), label="Modified in MESIMG")
 plt.legend(loc="upper right")
 plt.show()
 
